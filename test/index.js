@@ -7,7 +7,8 @@ import {
   isValidUrl,
   isValidIPAddress,
   isValidDate,
-  isValidPhoneNumber
+  isValidPhoneNumber,
+  isValidPassword
 } from "../lib";
 
 describe("My package", function() {
@@ -116,6 +117,10 @@ describe("Generic Phone number checking suite", function() {
     expect(isValidPhoneNumber("+31636363634")).to.equals(true);
   });
 
+  it("should verify phone number as NOT one of the valid formats", function() {
+    expect(isValidPhoneNumber("-31636363634")).to.equals(false);
+  });
+
   it("should verify phone number as one of the valid formats", function() {
     expect(isValidPhoneNumber("075-63546725")).to.equals(true);
   });
@@ -128,4 +133,38 @@ describe("Generic Phone number checking suite", function() {
     expect(isValidPhoneNumber("cueosjsnajjj")).to.equals(false);
   });
 
+});
+
+describe("test Suite Light weight password validator", function() {
+
+  const truthyPasswordList = [
+    '@@V4-3Z`zTzM{>k',
+    '12qw!"QW12',
+    '123qweASD!"#',
+    '1qA!"#$%&',
+    'Günther32',
+  ];
+
+  truthyPasswordList.forEach(password=>{
+    it("should validate password is valid", function() {
+      expect(isValidPassword(password)).to.equals(true);
+    },password);
+  });
+
+  const falsyPasswordList =[
+    '123456789',
+    'qweASD123',
+    'qweqQWEQWEqw',
+    '12qwAS!'
+  ]
+
+  falsyPasswordList.forEach(password=>{
+    it("should validate password is valid", function() {
+      expect(isValidPassword(password)).to.equals(false);
+    },password);
+  });
+
+  it("should verfiy empty password as NOT valid", function() {
+    expect(isValidPassword("")).to.equals(false);
+  });
 });
