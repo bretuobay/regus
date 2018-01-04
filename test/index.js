@@ -8,7 +8,8 @@ import {
   isValidIPAddress,
   isValidDate,
   isValidPhoneNumber,
-  isValidPassword
+  isValidPassword,
+  isValidAscii
 } from "../lib";
 
 describe("My package", function() {
@@ -168,3 +169,15 @@ describe("test Suite Light weight password validator", function() {
     expect(isValidPassword("")).to.equals(false);
   });
 });
+
+describe("Test suite for ascii characters",function(){
+
+  it("should verify it charaters are ASCII charaters", function(){
+    expect(isValidAscii('xxxabcxxx')).to.equals(true);
+  });
+
+  it("should verify it charaters are ASCII charaters", function(){
+    expect(isValidAscii('xxx☃☃☃xxx')).to.equals(false);
+  });
+
+})

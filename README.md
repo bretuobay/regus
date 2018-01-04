@@ -1,4 +1,4 @@
-# A collection of utility functions mostly regex utitlies collected and tested for use.
+# A collection of utility functions mostly regex utilities collected and tested for use.
 
 
 Clone , install npm packages then, build and test
