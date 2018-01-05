@@ -14,7 +14,7 @@ import {
 
 describe("My package", function() {
   it("should pass version as defined", function() {
-    expect(APP_VERSION).to.equals("1.0.0");
+    expect(APP_VERSION).to.equals("1.0.1");
   });
 });
 
