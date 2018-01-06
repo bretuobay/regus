@@ -1,6 +1,6 @@
 {
   "name": "regus",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A collection of functions, mostly regex  utilities for validation of email, password, ip, url etc",
   "keywords": [
     "es2015",
