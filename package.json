@@ -1,7 +1,7 @@
 {
   "name": "regus",
   "version": "1.0.1",
-  "description": "Tiny npm package starter kit",
+  "description": "A collection of functions, mostly regex  utilities for validation of email, password, ip, url etc",
   "keywords": [
     "es2015",
     "es5",
