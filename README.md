@@ -34,4 +34,17 @@ The `files` property in `package.json` specifies which files/folders will be pub
 └── test       # Tests folder
 ```
 
+## Implemented functions
+ Following functions all return truthy
+```
+containsEmail(stringToCheck)
+isValidEmail(emailStringToCheck)
+isValidUrl(urlString)
+isValidIPAddress(ipAddressString)
+isValidDate(dateToTestString)
+isValidPhoneNumber(phoneNumber)
+isValidPassword(password)
+isValidAscii(character)
+```
+
 
