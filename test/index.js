@@ -9,7 +9,8 @@ import {
   isValidDate,
   isValidPhoneNumber,
   isValidPassword,
-  isValidAscii
+  isValidAscii,
+  isValidImageFile
 } from "../lib";
 
 describe("My package", function() {
@@ -181,5 +182,24 @@ describe("Test suite for ascii characters", function() {
 
   it("should verify it charaters are ASCII charaters", function() {
     expect(isValidAscii("xxx☃☃☃xxx")).to.equals(false);
+  });
+});
+
+describe("Is valid image file", function() {
+  // assumes file name is valid?
+  let imageFileArray = ["wow.jpeg", "nice abbs.gif", "goojob.gif"];
+
+  imageFileArray.forEach(imageFile => {
+    it(imageFile + " : file extension is supported", function() {
+      expect(isValidImageFile(imageFile)).to.equals(true);
+    });
+  });
+
+  let badImageFileArray = ["bigfile.pdf", "gatto rouge.docx", "jpeg.nice"];
+
+  badImageFileArray.forEach(imageFile => {
+    it(imageFile + " : file extension is NOT supported", function() {
+      expect(isValidImageFile(imageFile)).to.equals(false);
+    });
   });
 });
