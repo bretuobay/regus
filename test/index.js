@@ -51,7 +51,6 @@ describe("IP Address  checking suite", function() {
     expect(isValidIPAddress("127.0.0.145z")).to.equals(false);
   });
 });
- 
 
 describe("Is valid date in certain format", function() {
   it("should verify date is of format dd/mm/yyyy ", function() {
@@ -79,7 +78,7 @@ describe("Is valid date in certain format", function() {
   });
 });
 
- /**
+/**
    * (123) 456-7890
     (123)456-7890
     123-456-7890
@@ -89,7 +88,6 @@ describe("Is valid date in certain format", function() {
     075-63546725
    */
 describe("Generic Phone number checking suite", function() {
- 
   it("should verify phone number as one of the valid formats", function() {
     expect(isValidPhoneNumber("(123) 456-7890")).to.equals(true);
   });
@@ -133,36 +131,42 @@ describe("Generic Phone number checking suite", function() {
   it("should verfiy random string phone number as NOT one of the valid formats", function() {
     expect(isValidPhoneNumber("cueosjsnajjj")).to.equals(false);
   });
-
 });
 
 describe("test Suite Light weight password validator", function() {
-
   const truthyPasswordList = [
-    '@@V4-3Z`zTzM{>k',
+    "@@V4-3Z`zTzM{>k",
     '12qw!"QW12',
     '123qweASD!"#',
     '1qA!"#$%&',
-    'Günther32',
+    "Günther32"
   ];
 
-  truthyPasswordList.forEach(password=>{
-    it("should validate password is valid", function() {
-      expect(isValidPassword(password)).to.equals(true);
-    },password);
+  truthyPasswordList.forEach(password => {
+    it(
+      "should validate password is valid",
+      function() {
+        expect(isValidPassword(password)).to.equals(true);
+      },
+      password
+    );
   });
 
-  const falsyPasswordList =[
-    '123456789',
-    'qweASD123',
-    'qweqQWEQWEqw',
-    '12qwAS!'
-  ]
+  const falsyPasswordList = [
+    "123456789",
+    "qweASD123",
+    "qweqQWEQWEqw",
+    "12qwAS!"
+  ];
 
-  falsyPasswordList.forEach(password=>{
-    it("should validate password is valid", function() {
-      expect(isValidPassword(password)).to.equals(false);
-    },password);
+  falsyPasswordList.forEach(password => {
+    it(
+      "should validate password is valid",
+      function() {
+        expect(isValidPassword(password)).to.equals(false);
+      },
+      password
+    );
   });
 
   it("should verfiy empty password as NOT valid", function() {
@@ -170,14 +174,12 @@ describe("test Suite Light weight password validator", function() {
   });
 });
 
-describe("Test suite for ascii characters",function(){
-
-  it("should verify it charaters are ASCII charaters", function(){
-    expect(isValidAscii('xxxabcxxx')).to.equals(true);
+describe("Test suite for ascii characters", function() {
+  it("should verify it charaters are ASCII charaters", function() {
+    expect(isValidAscii("xxxabcxxx")).to.equals(true);
   });
 
-  it("should verify it charaters are ASCII charaters", function(){
-    expect(isValidAscii('xxx☃☃☃xxx')).to.equals(false);
+  it("should verify it charaters are ASCII charaters", function() {
+    expect(isValidAscii("xxx☃☃☃xxx")).to.equals(false);
   });
-
-})
+});
