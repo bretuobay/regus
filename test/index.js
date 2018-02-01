@@ -10,7 +10,8 @@ import {
   isValidPhoneNumber,
   isValidPassword,
   isValidAscii,
-  isValidImageFile
+  isValidImageFile,
+  isNegativeNumber
 } from "../lib";
 
 describe("My package", function() {
@@ -202,4 +203,27 @@ describe("Is valid image file", function() {
       expect(isValidImageFile(imageFile)).to.equals(false);
     });
   });
+});
+
+describe('Suite for negative number',function(){
+
+  it("should verfify that it is a negative number",function(){
+    expect(isNegativeNumber(-23)).to.equals(true);
+  });
+
+  it("should verfify that it is a negative number",function(){
+    expect(isNegativeNumber(-1.5)).to.equals(true);
+  });
+
+  it("should verfify that it is a negative number",function(){
+    expect(isNegativeNumber(-5e+4)).to.equals(true);
+  });
+
+
+  it("should verfify that it is a negative number",function(){
+    // why is this negative?
+    expect(isNegativeNumber(5e+4)).to.equals(false);
+  });
+
+
 });
